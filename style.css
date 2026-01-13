@@ -1,14 +1,58 @@
+:root {
+    --bg-color: #f0f0f0;
+    --app-bg: #ffffff;
+    --text-color: #333333;
+    --circle-bg: #ffffff;
+    --circle-shadow: rgba(0, 0, 0, 0.1);
+    --btn-shadow: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a2e;
+    --app-bg: #16213e;
+    --text-color: #eaeaea;
+    --circle-bg: #0f3460;
+    --circle-shadow: rgba(0, 0, 0, 0.3);
+    --btn-shadow: rgba(0, 0, 0, 0.4);
+}
+
 body {
     font-family: sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 #app {
     text-align: center;
+    background-color: var(--app-bg);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px var(--btn-shadow);
+    transition: background-color 0.3s;
+}
+
+#theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--circle-bg);
+    color: var(--text-color);
+    box-shadow: 0 2px 8px var(--circle-shadow);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1);
 }
 
 #generate-btn {
@@ -20,7 +64,7 @@ body {
     background-color: #4CAF50;
     color: white;
     margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px var(--btn-shadow);
     transition: background-color 0.3s, transform 0.3s;
 }
 
@@ -33,17 +77,20 @@ body {
     display: flex;
     gap: 10px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .number-circle {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: var(--circle-bg);
+    color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 24px;
     font-weight: bold;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px var(--circle-shadow);
+    transition: background-color 0.3s, color 0.3s;
 }
